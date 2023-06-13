@@ -290,9 +290,9 @@ class Crawler:
 if __name__ == '__main__':
     provinces = PROVINCE_LIST
     with open(PROVINCE_CURL_JSON_PATH, 'r', encoding='utf-8') as curlFile:
-        province_curls = json.load(curlFile)
+        curls = json.load(curlFile)
 
-    crawler = Crawler("anhui_anhui")
+    crawler = Crawler("anhui", "anhui")
     crawler.crawl()
     crawler.save_as_json(METADATA_SAVE_PATH)
     # for province in provinces:

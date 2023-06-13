@@ -142,729 +142,761 @@
         }
     },
     "neimenggu": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "http://www.nmgdata.gov.cn",
-                "Referer": "http://www.nmgdata.gov.cn/data/dataSet",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest"
+        "neimenggu": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Origin": "http://www.nmgdata.gov.cn",
+                    "Referer": "http://www.nmgdata.gov.cn/data/dataSet",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "data": {
+                    "subjectId": "",
+                    "orgId": "",
+                    "openType": "",
+                    "sidx": "t",
+                    "sord": "desc",
+                    "searchValue": "",
+                    "page": "{}"
+                },
+                "url": "http://www.nmgdata.gov.cn/data/dataSet/list"
             },
-            "data": {
-                "subjectId": "",
-                "orgId": "",
-                "openType": "",
-                "sidx": "t",
-                "sord": "desc",
-                "searchValue": "",
-                "page": "{}"
-            },
-            "url": "http://www.nmgdata.gov.cn/data/dataSet/list"
-        },
-        "detail": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "http://www.nmgdata.gov.cn",
-                "Referer": "http://www.nmgdata.gov.cn/data/dataSet/detail/5482990672852830721",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest"
-            },
-            "data": {
-                "id": "{}"
-            },
-            "url": "http://www.nmgdata.gov.cn/data/dataSet/dataInfo"
+            "detail": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Origin": "http://www.nmgdata.gov.cn",
+                    "Referer": "http://www.nmgdata.gov.cn/data/dataSet/detail/5482990672852830721",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "data": {
+                    "id": "{}"
+                },
+                "url": "http://www.nmgdata.gov.cn/data/dataSet/dataInfo"
+            }
         }
     },
     "liaoning": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Referer": "http://data.ln.gov.cn/oportal/catalog/",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+        "liaoning": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Referer": "http://data.ln.gov.cn/oportal/catalog/",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                },
+                "queries": {
+                    "page": "{}"
+                },
+                "url": "http://data.ln.gov.cn/oportal/catalog/index"
             },
-            "queries": {
-                "page": "{}"
-            },
-            "url": "http://data.ln.gov.cn/oportal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Referer": "http://data.ln.gov.cn/oportal/catalog/",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
-            },
-            "url": "http://data.ln.gov.cn"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Referer": "http://data.ln.gov.cn/oportal/catalog/",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                },
+                "url": "http://data.ln.gov.cn"
+            }
         }
     },
     "shandong": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "none",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "shandong": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "none",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "params": {
+                    "page": "{}"
+                },
+                "url": "https://data.sd.gov.cn/portal/catalog/index"
             },
-            "params": {
-                "page": "{}"
-            },
-            "url": "https://data.sd.gov.cn/portal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Referer": "https://data.sd.gov.cn/portal/catalog/index?filterParam=org_code&filterParamCode=szbm&page=1",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://data.sd.gov.cn"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Referer": "https://data.sd.gov.cn/portal/catalog/index?filterParam=org_code&filterParamCode=szbm&page=1",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://data.sd.gov.cn"
+            }
         }
     },
     "jiangsu": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "http://data.jszwfw.gov.cn:8118",
-                "Referer": "http://data.jszwfw.gov.cn:8118/extranet/openportal/pages/resource/resourcelist.html",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest"
+        "jiangsu": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Origin": "http://data.jszwfw.gov.cn:8118",
+                    "Referer": "http://data.jszwfw.gov.cn:8118/extranet/openportal/pages/resource/resourcelist.html",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "data": "%7B%22token%22:null,%22usertype%22:null,%22params%22:%7B%22currentPage%22:{},%22pageSize%22:%2215%22,%22sortField%22:%22%22,%22sortOrder%22:%22desc%22,%22resourcesName%22:%22%22,%22resourceSubject%22:%22%22,%22resourceIndustry%22:%22%22,%22resourceScene%22:%22%22,%22registDepartGuid%22:%22%22,%22city%22:%22{}%22,%22resourcesType%22:%22%22,%22openType%22:%22%22%7D%7D",
+                "url": "http://data.jszwfw.gov.cn:8118/extranet/rest/dataOpen/getResourceList"
             },
-            "data": "%7B%22token%22:null,%22usertype%22:null,%22params%22:%7B%22currentPage%22:{},%22pageSize%22:%2215%22,%22sortField%22:%22%22,%22sortOrder%22:%22desc%22,%22resourcesName%22:%22%22,%22resourceSubject%22:%22%22,%22resourceIndustry%22:%22%22,%22resourceScene%22:%22%22,%22registDepartGuid%22:%22%22,%22city%22:%22{}%22,%22resourcesType%22:%22%22,%22openType%22:%22%22%7D%7D",
-            "url": "http://data.jszwfw.gov.cn:8118/extranet/rest/dataOpen/getResourceList"
-        },
-        "detail": {
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "http://data.jszwfw.gov.cn:8118",
-                "Referer": "http://data.jszwfw.gov.cn:8118/extranet/openportal/pages/resource/resource_detail.html?rowguid={}",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest"
-            },
-            "data": "%7B%22token%22:null,%22usertype%22:null,%22params%22:%7B%22rowGuid%22:%22{}%22,%22type%22:%221%22%7D%7D",
-            "url": "http://data.jszwfw.gov.cn:8118/extranet/rest/dataOpen/getResourceDetail"
+            "detail": {
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Origin": "http://data.jszwfw.gov.cn:8118",
+                    "Referer": "http://data.jszwfw.gov.cn:8118/extranet/openportal/pages/resource/resource_detail.html?rowguid={}",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "data": "%7B%22token%22:null,%22usertype%22:null,%22params%22:%7B%22rowGuid%22:%22{}%22,%22type%22:%221%22%7D%7D",
+                "url": "http://data.jszwfw.gov.cn:8118/extranet/rest/dataOpen/getResourceDetail"
+            }
         }
     },
     "shanghai": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Authorization": "",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Origin": "https://data.sh.gov.cn",
-                "Referer": "https://data.sh.gov.cn/view/data-resource/index.html",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-CSRFToken": "null",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "shanghai": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Authorization": "",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Origin": "https://data.sh.gov.cn",
+                    "Referer": "https://data.sh.gov.cn/view/data-resource/index.html",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-CSRFToken": "null",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": "{\"appScenarios\":\"\",\"dataDomain\":\"\",\"datasetKeyword\":\"\",\"fieldListKeyword\":\"\",\"openResType\":\"数据产品\",\"openType\":\"\",\"orgId\":\"\",\"pageNum\":1,\"pageSize\":10,\"generalScore\":\"\",\"resourceKeyword\":\"\",\"sort\":\"\",\"isHighQuality\":\"\"}",
+                "url": "https://data.sh.gov.cn/zq/api/data_set/search/"
             },
-            "data": "{\"appScenarios\":\"\",\"dataDomain\":\"\",\"datasetKeyword\":\"\",\"fieldListKeyword\":\"\",\"openResType\":\"数据产品\",\"openType\":\"\",\"orgId\":\"\",\"pageNum\":1,\"pageSize\":10,\"generalScore\":\"\",\"resourceKeyword\":\"\",\"sort\":\"\",\"isHighQuality\":\"\"}",
-            "url": "https://data.sh.gov.cn/zq/api/data_set/search/"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Authorization": "",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Referer": "https://data.sh.gov.cn/view/detail/index.html?type=cp&&id={}&&dataset_name={}",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://data.sh.gov.cn/zq/api/data_set/{}/"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Authorization": "",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Referer": "https://data.sh.gov.cn/view/detail/index.html?type=cp&&id={}&&dataset_name={}",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://data.sh.gov.cn/zq/api/data_set/{}/"
+            }
         }
     },
     "zhejiang": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Origin": "https://data.zjzwfw.gov.cn",
-                "Referer": "https://data.zjzwfw.gov.cn/jdop_front/channal/data_public.do",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "zhejiang": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Origin": "https://data.zjzwfw.gov.cn",
+                    "Referer": "https://data.zjzwfw.gov.cn/jdop_front/channal/data_public.do",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": {
+                    "pageNumber": "{}",
+                    "pageSize": "10",
+                    "sceneId": "0",
+                    "type": "1",
+                    "domainId": "0",
+                    "deptId": "",
+                    "regionId": "",
+                    "keyword": "",
+                    "content": "",
+                    "searchString": "",
+                    "orderDefault": "",
+                    "isDownload": "1",
+                    "dimensionId": "0"
+                },
+                "url": "https://data.zjzwfw.gov.cn/jdop_front/channal/datapubliclist.do"
             },
-            "data": {
-                "pageNumber": "{}",
-                "pageSize": "10",
-                "sceneId": "0",
-                "type": "1",
-                "domainId": "0",
-                "deptId": "",
-                "regionId": "",
-                "keyword": "",
-                "content": "",
-                "searchString": "",
-                "orderDefault": "",
-                "isDownload": "1",
-                "dimensionId": "0"
-            },
-            "url": "https://data.zjzwfw.gov.cn/jdop_front/channal/datapubliclist.do"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "none",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "queries": {
-                "iid": "{}",
-                "searchString": ""
-            },
-            "url": "https://data.zjzwfw.gov.cn/jdop_front/detail/data.do"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "none",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "iid": "{}",
+                    "searchString": ""
+                },
+                "url": "https://data.zjzwfw.gov.cn/jdop_front/detail/data.do"
+            }
         }
     },
     "anhui": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "IFLYTEK_CSRFTOKEN": "null",
-                "Origin": "http://data.ahzwfw.gov.cn:8000",
-                "Referer": "http://data.ahzwfw.gov.cn:8000/dataopen-web/api-data.html",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "screen_ratio": "1920*1080"
+        "anhui": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "IFLYTEK_CSRFTOKEN": "null",
+                    "Origin": "http://data.ahzwfw.gov.cn:8000",
+                    "Referer": "http://data.ahzwfw.gov.cn:8000/dataopen-web/api-data.html",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "screen_ratio": "1920*1080"
+                },
+                "data": {
+                    "pageSize": "10",
+                    "pageNum": "{}",
+                    "dycs": "",
+                    "gxsj": "",
+                    "fwcs": "",
+                    "xzcs": ""
+                },
+                "url": "http://data.ahzwfw.gov.cn:8000/dataopen-web/data/findByPage"
             },
-            "data": {
-                "pageSize": "10",
-                "pageNum": "{}",
-                "dycs": "",
-                "gxsj": "",
-                "fwcs": "",
-                "xzcs": ""
-            },
-            "url": "http://data.ahzwfw.gov.cn:8000/dataopen-web/data/findByPage"
-        },
-        "detail": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "IFLYTEK_CSRFTOKEN": "null",
-                "Origin": "http://data.ahzwfw.gov.cn:8000",
-                "Referer": "http://data.ahzwfw.gov.cn:8000/dataopen-web/api-data-details.html?rid={}",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
-            },
-            "data": {
-                "rid": "{}"
-            },
-            "url": "http://data.ahzwfw.gov.cn:8000/dataopen-web/data/findByRid"
+            "detail": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "IFLYTEK_CSRFTOKEN": "null",
+                    "Origin": "http://data.ahzwfw.gov.cn:8000",
+                    "Referer": "http://data.ahzwfw.gov.cn:8000/dataopen-web/api-data-details.html?rid={}",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                },
+                "data": {
+                    "rid": "{}"
+                },
+                "url": "http://data.ahzwfw.gov.cn:8000/dataopen-web/data/findByRid"
+            }
         }
     },
     "jiangxi": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Authorization": "Bearer",
-                "Connection": "keep-alive",
-                "Content-Type": "application/json;charset=UTF-8",
-                "Origin": "https://data.jiangxi.gov.cn",
-                "Referer": "https://data.jiangxi.gov.cn/open-data",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "jiangxi": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Authorization": "Bearer",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "Origin": "https://data.jiangxi.gov.cn",
+                    "Referer": "https://data.jiangxi.gov.cn/open-data",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": {
+                    "current": 1,
+                    "pageSize": 10,
+                    "dataName": "",
+                    "resResourceType": "",
+                    "resOrgCode": [],
+                    "dataFieldCode": [],
+                    "resShareType": "",
+                    "responsibilityListFlag": "",
+                    "orderHotNum": "desc"
+                },
+                "url": "https://data.jiangxi.gov.cn/opendata-portal/prod-api/openData/page"
             },
-            "data": {
-                "current": 1,
-                "pageSize": 10,
-                "dataName": "",
-                "resResourceType": "",
-                "resOrgCode": [],
-                "dataFieldCode": [],
-                "resShareType": "",
-                "responsibilityListFlag": "",
-                "orderHotNum": "desc"
-            },
-            "url": "https://data.jiangxi.gov.cn/opendata-portal/prod-api/openData/page"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Authorization": "Bearer",
-                "Connection": "keep-alive",
-                "Referer": "https://data.jiangxi.gov.cn/open-data/detail?id={}",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "queries": {
-                "dataId": "{}"
-            },
-            "url": "https://data.jiangxi.gov.cn/opendata-portal/prod-api/openData/infoById"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Authorization": "Bearer",
+                    "Connection": "keep-alive",
+                    "Referer": "https://data.jiangxi.gov.cn/open-data/detail?id={}",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "dataId": "{}"
+                },
+                "url": "https://data.jiangxi.gov.cn/opendata-portal/prod-api/openData/infoById"
+            }
         }
     },
     "fujian": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "fujian": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "page": "{}"
+                },
+                "url": "https://data.fujian.gov.cn/oportal/catalog/index"
             },
-            "queries": {
-                "page": "{}"
-            },
-            "url": "https://data.fujian.gov.cn/oportal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://data.fujian.gov.cn"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://data.fujian.gov.cn"
+            }
         }
     },
     "guangdong": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/json;",
-                "Origin": "https://gddata.gd.gov.cn",
-                "Referer": "https://gddata.gd.gov.cn/opdata/index",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "guangdong": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json;",
+                    "Origin": "https://gddata.gd.gov.cn",
+                    "Referer": "https://gddata.gd.gov.cn/opdata/index",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": {
+                    "pageSize": 8,
+                    "pageNo": 1,
+                    "officecCode": "",
+                    "subjectType": "",
+                    "sourceType": "1",
+                    "keyword": "",
+                    "openType": "",
+                    "sourceSuffix": ""
+                },
+                "url": "https://gddata.gd.gov.cn/backOpen/open/data/data/openCatalog/findPageBySearch"
             },
-            "data": {
-                "pageSize": 8,
-                "pageNo": 1,
-                "officecCode": "",
-                "subjectType": "",
-                "sourceType": "1",
-                "keyword": "",
-                "openType": "",
-                "sourceSuffix": ""
-            },
-            "url": "https://gddata.gd.gov.cn/backOpen/open/data/data/openCatalog/findPageBySearch"
-        },
-        "detail": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/json;",
-                "Origin": "https://gddata.gd.gov.cn",
-                "Referer": "https://gddata.gd.gov.cn/opdata/index",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "data": {
-                "resId": "{}"
-            },
-            "url": "https://gddata.gd.gov.cn/backOpen/open/data/data/openCatalog/selectDataCatalogByResId"
+            "detail": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json;",
+                    "Origin": "https://gddata.gd.gov.cn",
+                    "Referer": "https://gddata.gd.gov.cn/opdata/index",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": {
+                    "resId": "{}"
+                },
+                "url": "https://gddata.gd.gov.cn/backOpen/open/data/data/openCatalog/selectDataCatalogByResId"
+            }
         }
     },
     "guangxi": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Referer": "https://data.gxzf.gov.cn/",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "guangxi": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Referer": "https://data.gxzf.gov.cn/",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "page": "{}"
+                },
+                "url": "https://data.gxzf.gov.cn/portal/catalog/index"
             },
-            "queries": {
-                "page": "{}"
-            },
-            "url": "https://data.gxzf.gov.cn/portal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "cookies": {
-                "__utrace": "57ce0bb4e8b3b76c1f4aac38d7406ce0",
-                "OPENSESSION": "adae99c2-f656-4971-9696-60c4db9e44ef"
-            },
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://data.gxzf.gov.cn"
+            "detail": {
+                "method": "get",
+                "cookies": {
+                    "__utrace": "57ce0bb4e8b3b76c1f4aac38d7406ce0",
+                    "OPENSESSION": "adae99c2-f656-4971-9696-60c4db9e44ef"
+                },
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://data.gxzf.gov.cn"
+            }
         }
     },
     "hainan": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "*/*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "https://data.hainan.gov.cn",
-                "Referer": "https://data.hainan.gov.cn/sjj/index.htm",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "hainan": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Origin": "https://data.hainan.gov.cn",
+                    "Referer": "https://data.hainan.gov.cn/sjj/index.htm",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "data": {
+                    "curPage": "{}",
+                    "deptName": "",
+                    "openValue": "",
+                    "orderProperty": "",
+                    "orderType": "",
+                    "pageSize": "10",
+                    "score": "",
+                    "subject": "",
+                    "title": "",
+                    "type": ""
+                },
+                "url": "https://data.hainan.gov.cn/search/data/list"
             },
-            "data": {
-                "curPage": "{}",
-                "deptName": "",
-                "openValue": "",
-                "orderProperty": "",
-                "orderType": "",
-                "pageSize": "10",
-                "score": "",
-                "subject": "",
-                "title": "",
-                "type": ""
-            },
-            "url": "https://data.hainan.gov.cn/search/data/list"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Referer": "https://data.hainan.gov.cn/sjj/index.htm",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://data.hainan.gov.cn/sjj/{}.htm"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Referer": "https://data.hainan.gov.cn/sjj/index.htm",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://data.hainan.gov.cn/sjj/{}.htm"
+            }
         }
     },
     "ningxia": {
-        "resultList": {
-            "method": "get",
-            "cookies": {
-                "__utrace": "41b4ad733867d0a93f8773bd7f967b04",
-                "OPENSESSION": "649a5933-f929-4551-ab1a-4c2ade4c7953"
+        "ningxia": {
+            "resultList": {
+                "method": "get",
+                "cookies": {
+                    "__utrace": "41b4ad733867d0a93f8773bd7f967b04",
+                    "OPENSESSION": "649a5933-f929-4551-ab1a-4c2ade4c7953"
+                },
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Cookie": "__utrace=41b4ad733867d0a93f8773bd7f967b04; OPENSESSION=649a5933-f929-4551-ab1a-4c2ade4c7953",
+                    "Referer": "https://opendata.nx.gov.cn/portal/catalog/",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "page": "{}"
+                },
+                "url": "https://opendata.nx.gov.cn/portal/catalog/index"
             },
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Cookie": "__utrace=41b4ad733867d0a93f8773bd7f967b04; OPENSESSION=649a5933-f929-4551-ab1a-4c2ade4c7953",
-                "Referer": "https://opendata.nx.gov.cn/portal/catalog/",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "queries": {
-                "page": "{}"
-            },
-            "url": "https://opendata.nx.gov.cn/portal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "cookies": {
-                "__utrace": "41b4ad733867d0a93f8773bd7f967b04",
-                "OPENSESSION": "649a5933-f929-4551-ab1a-4c2ade4c7953"
-            },
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Cookie": "__utrace=41b4ad733867d0a93f8773bd7f967b04; OPENSESSION=649a5933-f929-4551-ab1a-4c2ade4c7953",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://opendata.nx.gov.cn"
+            "detail": {
+                "method": "get",
+                "cookies": {
+                    "__utrace": "41b4ad733867d0a93f8773bd7f967b04",
+                    "OPENSESSION": "649a5933-f929-4551-ab1a-4c2ade4c7953"
+                },
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Cookie": "__utrace=41b4ad733867d0a93f8773bd7f967b04; OPENSESSION=649a5933-f929-4551-ab1a-4c2ade4c7953",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://opendata.nx.gov.cn"
+            }
         }
     },
     "shaanxi": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Referer": "http://www.sndata.gov.cn/list",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "X-Requested-With": "XMLHttpRequest"
+        "shaanxi": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Referer": "http://www.sndata.gov.cn/list",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "queries": {
+                    "qk": "",
+                    "dcs": "",
+                    "ecs": "",
+                    "mqk": "",
+                    "fileType": "",
+                    "dataTopic": "",
+                    "dataTag": "",
+                    "orgCode": "",
+                    "areaCode": "61",
+                    "startDate": "",
+                    "endDate": "",
+                    "page.totalPages": "15",
+                    "page.pageNo": "{}",
+                    "_": "1686474565548"
+                },
+                "url": "http://www.sndata.gov.cn/query"
             },
-            "queries": {
-                "qk": "",
-                "dcs": "",
-                "ecs": "",
-                "mqk": "",
-                "fileType": "",
-                "dataTopic": "",
-                "dataTag": "",
-                "orgCode": "",
-                "areaCode": "61",
-                "startDate": "",
-                "endDate": "",
-                "page.totalPages": "15",
-                "page.pageNo": "{}",
-                "_": "1686474565548"
-            },
-            "url": "http://www.sndata.gov.cn/query"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Referer": "http://www.sndata.gov.cn/list",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
-            },
-            "queries": {
-                "id": "{}"
-            },
-            "url": "http://www.sndata.gov.cn/info"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Referer": "http://www.sndata.gov.cn/list",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                },
+                "queries": {
+                    "id": "{}"
+                },
+                "url": "http://www.sndata.gov.cn/info"
+            }
         }
     },
     "sichuan": {
-        "resultList": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Referer": "https://www.scdata.net.cn/oportal/catalog/",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
+        "sichuan": {
+            "resultList": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Referer": "https://www.scdata.net.cn/oportal/catalog/",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "queries": {
+                    "page": "{}"
+                },
+                "url": "https://www.scdata.net.cn/oportal/catalog/index"
             },
-            "queries": {
-                "page": "{}"
-            },
-            "url": "https://www.scdata.net.cn/oportal/catalog/index"
-        },
-        "detail": {
-            "method": "get",
-            "headers": {
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Cache-Control": "max-age=0",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "same-origin",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\""
-            },
-            "url": "https://www.scdata.net.cn"
+            "detail": {
+                "method": "get",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-User": "?1",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\""
+                },
+                "url": "https://www.scdata.net.cn"
+            }
         }
     },
     "guizhou": {
-        "resultList": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/json;charset=UTF-8",
-                "Origin": "http://data.guizhou.gov.cn",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "role": "0"
+        "guizhou": {
+            "resultList": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "Origin": "http://data.guizhou.gov.cn",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "role": "0"
+                },
+                "data": {
+                    "orderBy": 0,
+                    "topicId": [],
+                    "orgId": [],
+                    "pageSize": 12,
+                    "scenarioId": "",
+                    "resourceType": "",
+                    "resourceFormats": [],
+                    "searchText": [],
+                    "pageIndex": 1
+                },
+                "url": "http://data.guizhou.gov.cn/api/search/data/getDataDirectoryListByParams"
             },
-            "data": {
-                "orderBy": 0,
-                "topicId": [],
-                "orgId": [],
-                "pageSize": 12,
-                "scenarioId": "",
-                "resourceType": "",
-                "resourceFormats": [],
-                "searchText": [],
-                "pageIndex": 1
-            },
-            "url": "http://data.guizhou.gov.cn/api/search/data/getDataDirectoryListByParams"
-        },
-        "detail": {
-            "method": "post",
-            "headers": {
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-                "Connection": "keep-alive",
-                "Content-Type": "application/json;charset=UTF-8",
-                "Origin": "http://data.guizhou.gov.cn",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "role": "0"
-            },
-            "data": {
-                "id": "{}"
-            },
-            "url": "http://data.guizhou.gov.cn/api/search/data/getDataDetailByDataId"
+            "detail": {
+                "method": "post",
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "Origin": "http://data.guizhou.gov.cn",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "role": "0"
+                },
+                "data": {
+                    "id": "{}"
+                },
+                "url": "http://data.guizhou.gov.cn/api/search/data/getDataDetailByDataId"
+            }
         }
     }
 }
