@@ -149,6 +149,25 @@ class ResultList:
             links.append({'link': link['href'], 'data_formats': str(data_formats)})
         return links
 
+    def result_list_anhui_luan(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        html = response.content
+        soup = BeautifulSoup(html, "html.parser")
+        links = []
+
+        for dataset in soup.find('div', attrs={'class': 'bottom-content'}).find('ul').find_all('li', recursive=False):
+            link = dataset.find('div', attrs={
+                'class': 'cata-title'
+            }).find('a', attrs={'href': re.compile("/oportal/catalog/*")})
+            data_formats = []
+            for data_format in dataset.find('div', attrs={'class': 'file-type'}).find_all('li'):
+                data_format_text = data_format.get_text()
+                if data_format_text == '接口':
+                    data_format_text = 'api'
+                data_formats.append(data_format_text.lower())
+            links.append({'link': link['href'], 'data_formats': str(data_formats)})
+        return links
+
     def result_list_anhui_chizhou(self, curl):
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content

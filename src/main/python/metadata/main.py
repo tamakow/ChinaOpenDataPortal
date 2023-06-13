@@ -2,7 +2,8 @@ import json
 import time
 import urllib
 
-from constants import (METADATA_SAVE_PATH, PROVINCE_CURL_JSON_PATH, PROVINCE_LIST)
+from constants import (METADATA_SAVE_PATH, PROVINCE_CURL_JSON_PATH,
+                       PROVINCE_LIST)
 from detail import Detail
 from resultlist import ResultList
 
@@ -199,6 +200,22 @@ class Crawler:
 
     def crawl_anhui_suzhou(self):
         for page in range(1, 54):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['page'] = str(page)
+            links = self.result_list.get_result_list(curl)
+            if len(links) == 0:
+                break
+            for link in links:
+                curl = self.detail_list_curl.copy()
+                curl['url'] += link['link']
+                metadata = self.detail.get_detail(curl)
+                metadata['数据格式'] = link['data_formats']
+                print(metadata)
+                self.metadata_list.append(metadata)
+
+    def crawl_anhui_luan(self):
+        for page in range(1, 56):
             print(page)
             curl = self.result_list_curl.copy()
             curl['queries']['page'] = str(page)
