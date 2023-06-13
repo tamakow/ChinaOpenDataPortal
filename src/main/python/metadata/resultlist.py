@@ -8,28 +8,29 @@ from constants import REQUEST_TIME_OUT
 
 
 class ResultList:
-    def __init__(self, province) -> None:
+    def __init__(self, province, city) -> None:
         self.province = province
+        self.city = city
 
     def get_result_list(self, curl):
-        func_name = "result_list_" + str(self.province)
+        func_name = f"result_list_{str(self.province)}_{str(self.city)}"
         func = getattr(self, func_name, self.result_list_other)
         return func(curl)
 
-    def result_list_beijing(self, curl):
+    def result_list_beijing_beijing(self, curl):
         response = requests.post(curl['url'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['object']['docs']
         print(resultList)
         links = [x['url'] for x in resultList]
         return links
 
-    def result_list_tianjin(self, curl):
+    def result_list_tianjin_tianjin(self, curl):
         response = requests.get(curl['url'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['dataList']
         links = [x['href'] for x in resultList]
         return links
 
-    def result_list_hebei(self, curl):
+    def result_list_hebei_hebei(self, curl):
         response = requests.post(curl['url'],
                                  headers=curl['headers'],
                                  data=curl['data'],
@@ -44,7 +45,7 @@ class ResultList:
         } for x in resultList]
         return metadata_ids
 
-    def result_list_neimenggu(self, curl):
+    def result_list_neimenggu_neimenggu(self, curl):
         response = requests.post(curl['url'],
                                  headers=curl['headers'],
                                  data=curl['data'],
@@ -54,7 +55,7 @@ class ResultList:
         ids = [x['id'] for x in resultList]
         return ids
 
-    def result_list_liaoning(self, curl):
+    def result_list_liaoning_liaoning(self, curl):
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
         soup = BeautifulSoup(html, "html.parser")
@@ -64,7 +65,7 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_shandong(self, curl):
+    def result_list_shandong_shandong(self, curl):
         response = requests.get(curl['url'], params=curl['params'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
         soup = BeautifulSoup(html, "html.parser")
@@ -74,7 +75,7 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_jiangsu(self, curl):
+    def result_list_jiangsu_jiangsu(self, curl):
         response = requests.post(curl['url'],
                                  data=curl['data'],
                                  headers=curl['headers'],
@@ -84,13 +85,13 @@ class ResultList:
         rowGuids = [x['rowGuid'] for x in resultList]
         return rowGuids
 
-    def result_list_shanghai(self, curl):
+    def result_list_shanghai_shanghai(self, curl):
         response = requests.post(curl['url'], headers=curl['headers'], data=curl['data'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['data']['content']
         dataset_ids = [{'datasetId': x['datasetId'], 'datasetName': x['datasetName']} for x in resultList]
         return dataset_ids
 
-    def result_list_zhejiang(self, curl):
+    def result_list_zhejiang_zhejiang(self, curl):
         response = requests.post(curl['url'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = json.loads(response.text)['data']
         soup = BeautifulSoup(html, "html.parser")
@@ -103,7 +104,7 @@ class ResultList:
             iids.append(querys)
         return iids
 
-    def result_list_anhui(self, curl):
+    def result_list_anhui_anhui(self, curl):
         response = requests.post(curl['url'],
                                  data=curl['data'],
                                  headers=curl['headers'],
@@ -113,13 +114,13 @@ class ResultList:
         rids = [x['rid'] for x in resultList]
         return rids
 
-    def result_list_jiangxi(self, curl):
+    def result_list_jiangxi_jiangxi(self, curl):
         response = requests.post(curl['url'], json=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['data']
         data_ids = [x['dataId'] for x in resultList]
         return data_ids
 
-    def result_list_fujian(self, curl):
+    def result_list_fujian_fujian(self, curl):
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
         soup = BeautifulSoup(html, "html.parser")
@@ -129,13 +130,13 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_guangdong(self, curl):
+    def result_list_guangdong_guangdong(self, curl):
         response = requests.post(curl['url'], json=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['data']['page']['list']
         res_ids = [x['resId'] for x in resultList]
         return res_ids
 
-    def result_list_guangxi(self, curl):
+    def result_list_guangxi_guangxi(self, curl):
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
         soup = BeautifulSoup(html, "html.parser")
@@ -145,13 +146,13 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_hainan(self, curl):
+    def result_list_hainan_hainan(self, curl):
         response = requests.post(curl['url'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         resultList = json.loads(response.text)['data']['content']
         res_ids = [x['id'] for x in resultList]
         return res_ids
 
-    def result_list_ningxia(self, curl):
+    def result_list_ningxia_ningxia(self, curl):
         response = requests.get(curl['url'],
                                 params=curl['queries'],
                                 cookies=curl['cookies'],
@@ -166,7 +167,7 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_shaanxi(self, curl):
+    def result_list_shaanxi_shaanxi(self, curl):
         response = requests.get(curl['url'],
                                 params=curl['queries'],
                                 headers=curl['headers'],
@@ -176,7 +177,7 @@ class ResultList:
         ids = [x['id'] for x in resultList]
         return ids
 
-    def result_list_sichuan(self, curl):
+    def result_list_sichuan_sichuan(self, curl):
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
         soup = BeautifulSoup(html, "html.parser")
@@ -186,7 +187,7 @@ class ResultList:
             links.append(link['href'])
         return links
 
-    def result_list_guizhou(self, curl):
+    def result_list_guizhou_guizhou(self, curl):
         response = requests.post(curl['url'],
                                  json=curl['data'],
                                  headers=curl['headers'],

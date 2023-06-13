@@ -9,15 +9,16 @@ from constants import REQUEST_TIME_OUT
 
 
 class Detail:
-    def __init__(self, province) -> None:
+    def __init__(self, province, city) -> None:
         self.province = province
+        self.city = city
 
     def get_detail(self, curl):
-        func_name = "detail_" + str(self.province)
+        func_name = f"detail_{str(self.province)}_{str(self.city)}"
         func = getattr(self, func_name, self.detail_other)
         return func(curl)
 
-    def detail_beijing(self, curl):
+    def detail_beijing_beijing(self, curl):
 
         key_list = ["资源名称", "资源出版日期", "资源分类", "摘要", "资源所有权单位", "关键字说明", "资源类型", "资源记录数"]
 
@@ -36,7 +37,7 @@ class Detail:
             dataset_matadata[line[0]] = line[1]
         return dataset_matadata
 
-    def detail_tianjin(self, curl):
+    def detail_tianjin_tianjin(self, curl):
 
         response = requests.get(curl['url'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         html = response.content
@@ -50,7 +51,7 @@ class Detail:
                 dataset_matadata[th.get_text().strip()] = td.get_text().strip()
         return dataset_matadata
 
-    def detail_hebei(self, curl):
+    def detail_hebei_hebei(self, curl):
 
         list_fields = ["信息资源分类", "开放条件"]
         table_fields = [
@@ -84,7 +85,7 @@ class Detail:
                 dataset_matadata[p_name] = p_text
         return dataset_matadata
 
-    def detail_neimenggu(self, curl):
+    def detail_neimenggu_neimenggu(self, curl):
 
         key_map = {
             'title': "目录名称",
@@ -109,7 +110,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_liaoning(self, curl):
+    def detail_liaoning_liaoning(self, curl):
 
         list_fields = ["来源部门", "重点领域", "数据更新时间", "开放条件"]
         table_fields = ["数据量", "接口量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
@@ -136,7 +137,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_shandong(self, curl):
+    def detail_shandong_shandong(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", " 更新时间", "开放类型"]
         table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
@@ -161,7 +162,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_jiangsu(self, curl):
+    def detail_jiangsu_jiangsu(self, curl):
 
         key_map = {
             'resourcesName': "资源名称",
@@ -188,7 +189,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_shanghai(self, curl):
+    def detail_shanghai_shanghai(self, curl):
 
         key_map = {
             'dataset_name': "数据集名称",
@@ -212,7 +213,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_zhejiang(self, curl):
+    def detail_zhejiang_zhejiang(self, curl):
 
         table_fields = ["摘要", "标签", "更新周期", "数源单位", "数据领域", "行业分类", "发布日期", "更新日期", "开放条件", "联系方式", "资源格式", "数据量"]
 
@@ -237,7 +238,7 @@ class Detail:
                     dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_anhui(self, curl):
+    def detail_anhui_anhui(self, curl):
 
         key_map = {
             'catalogName': "标题",
@@ -262,7 +263,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_jiangxi(self, curl):
+    def detail_jiangxi_jiangxi(self, curl):
 
         key_map = {
             'dataName': "标题",
@@ -286,7 +287,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_fujian(self, curl):
+    def detail_fujian_fujian(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", " 更新时间", "开放条件"]
         table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "描述"]
@@ -311,7 +312,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_guangdong(self, curl):
+    def detail_guangdong_guangdong(self, curl):
 
         key_map = {
             'resTitle': "名称",
@@ -336,7 +337,7 @@ class Detail:
             dataset_matadata[value] = detail_json[key]
         return dataset_matadata
 
-    def detail_guangxi(self, curl):
+    def detail_guangxi_guangxi(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", " 更新时间", "开放条件"]
         table_fields = ["数据量", "所属行业", "更新频率", "标签", "描述"]
@@ -360,7 +361,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_hainan(self, curl):
+    def detail_hainan_hainan(self, curl):
 
         table_fields = ["摘要", "目录名称", "开放状态", "所属主题", "来源部门", "目录发布时间", "数据更新时间", "更新频率"]
 
@@ -376,7 +377,7 @@ class Detail:
                 dataset_matadata[th_name] = td_text
         return dataset_matadata
 
-    def detail_ningxia(self, curl):
+    def detail_ningxia_ningxia(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", " 更新时间", "开放条件"]
         table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
@@ -405,7 +406,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_shaanxi(self, curl):
+    def detail_shaanxi_shaanxi(self, curl):
 
         list_fields = ["发布机构", "资源格式", "所属主题", "发布日期", "更新日期"]
 
@@ -430,7 +431,7 @@ class Detail:
 
         return dataset_matadata
 
-    def detail_sichuan(self, curl):
+    def detail_sichuan_sichuan(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", " 更新时间", "开放条件"]
         table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
@@ -454,7 +455,7 @@ class Detail:
             dataset_matadata[td_name] = td_text
         return dataset_matadata
 
-    def detail_guizhou(self, curl):
+    def detail_guizhou_guizhou(self, curl):
 
         key_map = {
             'name': "标题",

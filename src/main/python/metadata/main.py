@@ -12,8 +12,8 @@ class Crawler:
     def __init__(self, province, city):
         self.province = province
         self.city = city
-        self.result_list = ResultList(self.province)
-        self.detail = Detail(self.province)
+        self.result_list = ResultList(self.province, self.city)
+        self.detail = Detail(self.province, self.city)
         self.result_list_curl = curls[province][city]['resultList']
         self.detail_list_curl = curls[province][city]['detail']
         self.metadata_list = []
