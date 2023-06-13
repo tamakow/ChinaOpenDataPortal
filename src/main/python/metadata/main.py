@@ -1,29 +1,30 @@
 import json
 import urllib
 
-from constants import PROVINCE_CURL_JSON_PATH, PROVINCE_LIST
+from constants import (METADATA_SAVE_PATH, PROVINCE_CURL_JSON_PATH, PROVINCE_LIST)
 from detail import Detail
 from resultlist import ResultList
 
-province_curls = {}
+curls = {}
 
 
 class Crawler:
-    def __init__(self, province):
+    def __init__(self, province, city):
         self.province = province
+        self.city = city
         self.result_list = ResultList(self.province)
         self.detail = Detail(self.province)
-        self.result_list_curl = province_curls[province]['resultList']
-        self.detail_list_curl = province_curls[province]['detail']
+        self.result_list_curl = curls[province][city]['resultList']
+        self.detail_list_curl = curls[province][city]['detail']
         self.metadata_list = []
 
     def crawl(self):
-        func_name = "crawl_" + str(self.province)
+        func_name = f"crawl_{str(self.province)}_{str(self.city)}"
         func = getattr(self, func_name, self.crawl_other)
         func()
 
     # TODO: 反爬虫 ConnectionResetError: [WinError 10054]
-    def crawl_beijing(self):
+    def crawl_beijing_beijing(self):
         for page in range(1, 2):
             print(page)
             curl = self.result_list_curl.copy()
@@ -36,7 +37,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_tianjin(self):
+    def crawl_tianjin_tianjin(self):
         curl = self.result_list_curl.copy()
         links = self.result_list.get_result_list(curl)
         for link in links[:10]:
@@ -46,7 +47,7 @@ class Crawler:
             print(metadata)
             self.metadata_list.append(metadata)
 
-    def crawl_hebei(self):
+    def crawl_hebei_hebei(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -63,7 +64,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_neimenggu(self):
+    def crawl_neimenggu_neimenggu(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -76,7 +77,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_liaoning(self):
+    def crawl_liaoning_liaoning(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -89,7 +90,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_shandong(self):
+    def crawl_shandong_shandong(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -102,7 +103,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_jiangsu(self):
+    def crawl_jiangsu_jiangsu(self):
         for city in ['', 'all']:
             for page in range(0, 10):
                 print(page)
@@ -117,7 +118,7 @@ class Crawler:
                     print(metadata)
                     self.metadata_list.append(metadata)
 
-    def crawl_shanghai(self):
+    def crawl_shanghai_shanghai(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -132,7 +133,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_zhejiang(self):
+    def crawl_zhejiang_zhejiang(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -145,7 +146,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_anhui(self):
+    def crawl_anhui_anhui(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -159,7 +160,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_jiangxi(self):
+    def crawl_jiangxi_jiangxi(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -173,7 +174,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_fujian(self):
+    def crawl_fujian_fujian(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -186,7 +187,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_guangdong(self):
+    def crawl_guangdong_guangdong(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -199,7 +200,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_guangxi(self):
+    def crawl_guangxi_guangxi(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -212,7 +213,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_hainan(self):
+    def crawl_hainan_hainan(self):
         for page in range(0, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -225,7 +226,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_ningxia(self):
+    def crawl_ningxia_ningxia(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -238,7 +239,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_shaanxi(self):
+    def crawl_shaanxi_shaanxi(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -251,7 +252,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_sichuan(self):
+    def crawl_sichuan_sichuan(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -264,7 +265,7 @@ class Crawler:
                 print(metadata)
                 self.metadata_list.append(metadata)
 
-    def crawl_guizhou(self):
+    def crawl_guizhou_guizhou(self):
         for page in range(1, 5):
             print(page)
             curl = self.result_list_curl.copy()
@@ -280,14 +281,20 @@ class Crawler:
     def crawl_other(self):
         print("暂无该省")
 
+    def save_matadata_as_json(self, save_dir):
+        filename = save_dir + self.province + '_' + self.city + '.json'
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(f, self.metadata_list)
+
 
 if __name__ == '__main__':
     provinces = PROVINCE_LIST
     with open(PROVINCE_CURL_JSON_PATH, 'r', encoding='utf-8') as curlFile:
         province_curls = json.load(curlFile)
 
-    crawler = Crawler("liaoning")
+    crawler = Crawler("anhui_anhui")
     crawler.crawl()
+    crawler.save_as_json(METADATA_SAVE_PATH)
     # for province in provinces:
     #     crawler = Crawler(province)
     #     crawler.crawl()
