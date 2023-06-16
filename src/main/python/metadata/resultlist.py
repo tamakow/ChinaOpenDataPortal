@@ -37,14 +37,32 @@ class ResultList:
             links.append({'link': link['href'], 'data_formats': str(data_formats)})
         return links
 
-    def result_list_guizhou_guizhou(self, curl):
-        response = requests.post(curl['url'],
-                                 json=curl['data'],
-                                 headers=curl['headers'],
-                                 verify=False,
-                                 timeout=REQUEST_TIME_OUT)
+    def result_list_sichuan_chengdu(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        # soup = BeautifulSoup(html, "lxml")
+        links = []
+
+        for dataset in soup.find('div', attrs={'class': 'bottom-content'}).find('ul').find_all('li', recursive=False):
+            link = dataset.find('div', attrs={
+                'class': 'cata-title'
+            }).find('a', attrs={'href': re.compile("/oportal/catalog/*")})
+            data_formats = []
+            for data_format in dataset.find('div', attrs={'class': 'file-type'}).find_all('li'):
+                data_format_text = data_format.get_text()
+                if data_format_text == '接口':
+                    data_format_text = 'api'
+                data_formats.append(data_format_text.lower())
+            links.append({'link': link['href'], 'data_formats': str(data_formats)})
+        return links
+
+
+    def result_list_sichuan_zigong(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
         print(response)
-        resultList = json.loads(response.text)['data']
+        resultList = json.loads(response.text)['data']['rows']
         ids = [x['id'] for x in resultList]
         return ids
 

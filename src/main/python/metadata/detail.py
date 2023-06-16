@@ -21,8 +21,11 @@ class Detail:
     def detail_sichuan_sichuan(self, curl):
 
         list_fields = ["来源部门", "重点领域", "发布时间", "更新时间", "开放条件"]
-        table_fields = ["数据量", "文件数", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
+        table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
         response = requests.get(curl['url'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
         html = response.content.decode('utf-8')
         soup = BeautifulSoup(html, "html.parser")
         dataset_metadata = {}
@@ -42,6 +45,33 @@ class Detail:
                 td_text = ucd.normalize('NFKC', td_text).replace(' ', '')
                 dataset_metadata[td_name] = td_text
         dataset_metadata['详情页网址'] = curl['url']
+        return dataset_metadata
+
+    def detail_sichuan_chengdu(self, curl):
+        list_fields = ["来源部门", "主题", "发布时间", "更新时间", "开放条件"]
+        table_fields = ["数据量", "所属行业", "更新频率", "部门电话", "部门邮箱", "标签", "描述"]
+        response = requests.get(curl['url'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        dataset_metadata = {}
+        title = soup.find('ul', attrs={'class': 'd-title pull-left'})
+        title = title.find('h4').get_text()
+        dataset_metadata['标题'] = title
+        for li in soup.find('ul', attrs={'class': 'list-inline'}).find_all('li', attrs={}):
+            li_name = li.get_text().split('：')[0].strip()
+            if li_name in list_fields:
+                li_text = li.find('span', attrs={'class': 'text-primary'}).get_text().strip()
+                dataset_metadata[li_name] = li_text
+        table = soup.find('li', attrs={'name': 'basicinfo'})
+        for td_name in table_fields:
+            td_text = table.find('td', text=td_name)
+            if td_text is not None:
+                td_text = td_text.find_next('td').get_text().strip()
+                td_text = ucd.normalize('NFKC', td_text).replace(' ', '')
+                dataset_metadata[td_name] = td_text
         return dataset_metadata
 
 
