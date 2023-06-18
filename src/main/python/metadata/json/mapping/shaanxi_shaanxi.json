@@ -1,0 +1,11 @@
+{
+    "标题": "title",
+    "来源部门": "department",
+    "所属主题": "category",
+    "发布时间": "publish_time",
+    "更新时间": "update_time",
+    "标签": "tags",
+    "描述": "description",
+    "数据格式": "data_formats",
+    "详情页网址": "url"
+}
