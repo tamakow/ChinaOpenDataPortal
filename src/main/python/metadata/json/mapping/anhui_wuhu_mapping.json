@@ -1,0 +1,12 @@
+{
+    "标题": "title",
+    "机构分类": "department",
+    "领域名称": "category",
+    "数据集创建时间": "publish_time",
+    "数据集更新时间": "update_time",
+    "开放类型": "is_open",
+    "更新频率": "update_frequency",
+    "数据简介": "description",
+    "资源格式": "data_formats",
+    "url": "url"
+}

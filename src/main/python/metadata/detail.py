@@ -161,7 +161,6 @@ class Detail:
                 dataset_metadata[td_name] = td_text
         return dataset_metadata
 
-
     def detail_sichuan_deyang(self, curl):
 
         key_map = {
@@ -214,7 +213,8 @@ class Detail:
             'ssbq': "标签",
         }
 
-        frequency_mapping = {'0': "实时", '1': "每日", '2': "每周", '3': "每月", '4': "每季度", '5': "每半年", '6': "每年"}
+        frequency_mapping = {'0': "实时", '1': "每日", '2': "每周", '3': "每月", '4': "每季度", '5': "每半年",
+                             '6': "每年"}
 
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         if response.status_code != requests.codes.ok:
@@ -252,7 +252,8 @@ class Detail:
             'resourcrtype': "资源格式"
         }
 
-        frequency_mapping = {'8': "实时", '1': "其他", '2': "每日", '3': "每周", '4': "每月", '5': "每季度", '6': "每半年", '7': "每年"}
+        frequency_mapping = {'8': "实时", '1': "其他", '2': "每日", '3': "每周", '4': "每月", '5': "每季度",
+                             '6': "每半年", '7': "每年"}
 
         response = requests.post(curl['url'], json=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         if response.status_code != requests.codes.ok:
@@ -266,7 +267,8 @@ class Detail:
                 detail_json[key] = detail_json[key].split(" ")[0].strip()
             if key == 'cycle':
                 if key in detail_json:
-                    detail_json[key] = frequency_mapping[detail_json[key]] if detail_json[key] in frequency_mapping else "其他"
+                    detail_json[key] = frequency_mapping[detail_json[key]] if detail_json[
+                                                                                  key] in frequency_mapping else "其他"
                 else:
                     detail_json[key] = '其他'
             if key == 'SharedStructuredRecords':
@@ -450,9 +452,10 @@ class Detail:
         dataset_metadata['详情页网址'] = curl['url']
         return dataset_metadata
 
-    def detail_xinjiang_wlmq(self, curl):
+    def detail_ningxia_yinchuan(self, curl):
 
-        list_fields = ["来源部门", "所属主题", "发布时间", "最后更新", "开放状态", "所属行业", "更新频率", "标签", "描述"]
+        list_fields = ["来源部门", "所属主题", "发布时间", "最后更新", "开放状态", "所属行业", "更新频率", "标签",
+                       "描述"]
         response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
         if response.status_code != requests.codes.ok:
             print("error " + str(response.status_code) + ": " + curl['url'])
@@ -464,7 +467,8 @@ class Detail:
         title = title.find('span', attrs={'class': 'detail-title'}).get_text()
         dataset_metadata['标题'] = title
 
-        for divs in soup.find('div', attrs={'class': 'detail-info-list tab-body'}).find('li', attrs={'action': 'data-info'}).find_all('div', attrs={'class': 'info-list'}):
+        for divs in soup.find('div', attrs={'class': 'detail-info-list tab-body'}).find('li', attrs={
+            'action': 'data-info'}).find_all('div', attrs={'class': 'info-list'}):
             for li in divs.find_all('li'):
                 li_name = li.find('div', attrs={'class': 'info-header'}).get_text().strip()
                 if li_name in list_fields:
@@ -477,6 +481,171 @@ class Detail:
                     dataset_metadata[li_name] = li_text
         dataset_metadata['详情页网址'] = curl['url']
         return dataset_metadata
+
+    def detail_xinjiang_wlmq(self, curl):
+
+        list_fields = ["来源部门", "所属主题", "发布时间", "最后更新", "开放状态", "所属行业", "更新频率", "标签",
+                       "描述"]
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        dataset_metadata = {}
+        title = soup.find('div', attrs={'class': 'detail-header'})
+        title = title.find('span', attrs={'class': 'detail-title'}).get_text()
+        dataset_metadata['标题'] = title
+
+        for divs in soup.find('div', attrs={'class': 'detail-info-list tab-body'}).find('li', attrs={
+            'action': 'data-info'}).find_all('div', attrs={'class': 'info-list'}):
+            for li in divs.find_all('li'):
+                li_name = li.find('div', attrs={'class': 'info-header'}).get_text().strip()
+                if li_name in list_fields:
+                    div = li.find('div', attrs={'class': 'info-body'})
+                    li_text = div.get_text().strip()
+                    if li_name == '标签':
+                        li_text = div['tags']
+                    if li_name in ["发布时间", "最后更新"]:
+                        li_text = li_text.split(' ')[0].strip()
+                    dataset_metadata[li_name] = li_text
+        dataset_metadata['详情页网址'] = curl['url']
+        return dataset_metadata
+
+    def detail_anhui_bengbu(self, curl):
+        list_fields = ["数据提供方", "数据主题", "发布时间", "更新时间", "公开属性", "更新频率", "摘要", "下载格式",
+                       "关键字", "数据条数"]
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        dataset_metadata = {}
+        title = soup.find('div', attrs={'class': 'data_newtitle'})
+        title = title.find('h1', attrs={'class': 'tit'}).get_text()
+        dataset_metadata['标题'] = title
+
+        for li in soup.find('div', attrs={'class': 'data_sj'}).find('ul', attrs={'class': 'clearfix'}).find_all('li'):
+            li_name = li.find('span', attrs={'class': 'tit'}).get_text().split("：")[0].strip()
+            if li_name in list_fields:
+                li_text = li.get_text().split("：")[-1].strip()
+                if li_name in ["发布时间", "更新时间"]:
+                    li_text = li_text.split(' ')[0].strip()
+                if li_name == '下载格式':
+                    li_text = li_text.split('，')
+                dataset_metadata[li_name] = li_text
+        return dataset_metadata
+
+    def detail_anhui_huaibei(self, curl):
+
+        key_map = {
+            'name': "标题",
+            'companyName': "数源单位",
+            'appTypeName': "数据领域",
+            'createTime': "发布日期",
+            'lastUpdateTime': "更新日期",
+            'openConditions': "开放条件",
+            'dataCount': "数据量",
+            'industryType': "行业分类",
+            'updateCycle': "更新周期",
+            'phone': "联系方式",
+            'label': "标签",
+            'summary': "摘要",
+        }
+
+
+        response = requests.post(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+
+        dataset_matadata = {}
+        detail_json = json.loads(response.text)['result']
+        
+        dataset_matadata["资源格式"] = []
+        if detail_json['hascsv']:
+            dataset_matadata["资源格式"].append('csv')
+        if detail_json['hasjson']:
+            dataset_matadata["资源格式"].append('json')
+        if detail_json['hasrdf']:
+            dataset_matadata["资源格式"].append('rdf')
+        if detail_json['hasxls']:
+            dataset_matadata["资源格式"].append('xls')
+        if detail_json['hasxml']:
+            dataset_matadata["资源格式"].append('xml')
+
+        for key, value in key_map.items():
+            if detail_json[key] is None:
+                dataset_matadata[value] = ""
+                continue
+            if key in ['createTime', 'lastUpdateTime']:
+                detail_json[key] = detail_json[key].split(" ")[0].strip()
+            dataset_matadata[value] = detail_json[key]
+        return dataset_matadata
+
+    def detail_anhui_huangshan(self, curl):
+
+        key_map = {
+            'name': "标题",
+            'publishDate': "发布时间",
+            'refreshDate': "更新时间",
+            'dataCounts': "数据量",
+            'updateCycle': "更新周期",
+            'resourceAbstract': "摘要",
+        }
+
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+
+        dataset_matadata = {}
+        detail_json = json.loads(response.text)
+
+        # 目前的200个数据集都是不定期
+        freq_map = {
+            9: '不定期'
+        }
+
+        for key, value in key_map.items():
+            if key not in detail_json.keys() or detail_json[key] is None:
+                dataset_matadata[value] = ""
+                continue
+            if key in ['publishDate', 'refreshDate']:
+                detail_json[key] = detail_json[key].split(" ")[0].strip()
+            if key == 'updateCycle':
+                detail_json[key] = freq_map[detail_json[key]]
+            dataset_matadata[value] = detail_json[key]
+        return dataset_matadata
+
+    def detail_anhui_chuzhou(self, curl):
+
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        detail_json = json.loads(response.text)['data']
+
+        format_list = []
+
+        if 'url' in detail_json:
+            file_list = json.loads(detail_json['url'])
+            for file in file_list:
+                format_list.append(file['name'].split('.')[-1].strip().lower())
+        if 'fileUrl' in detail_json:
+            file_list = json.loads(detail_json['fileUrl'])
+            for file in file_list:
+                format_list.append(file['name'].split('.')[-1].strip().lower())
+
+        metadata_mapping = {
+            "联系电话": detail_json['phone'],
+            "资源格式": format_list,
+            "详情页网址": 'https://www.chuzhou.gov.cn/data/#/wdfwDetail?id=' + str(detail_json['id'])
+        }
+
+        return metadata_mapping
 
     def detail_other(self, curl):
         print("暂无该省市")

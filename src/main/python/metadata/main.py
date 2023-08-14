@@ -1,4 +1,5 @@
 import json
+import re
 import time
 import urllib
 
@@ -156,7 +157,7 @@ class Crawler:
                     self.metadata_list.append(metadata)
 
     def crawl_sichuan_mianyang(self):
-        for page in tqdm(range(101, 1297)):
+        for page in tqdm(range(1, 1297)):
             # print(page)
             curl = self.result_list_curl.copy()
             # time.sleep(5)
@@ -265,7 +266,7 @@ class Crawler:
                 print('write to file')
 
     def crawl_sichuan_nanchong(self):
-        for page in tqdm(range(800, 1655)):
+        for page in tqdm(range(1, 1655)):
             # print(page)
             curl = self.result_list_curl.copy()
             curl['queries']['page'] = str(page)
@@ -317,6 +318,29 @@ class Crawler:
                 self.metadata_list.clear()
                 print('write to file')
 
+    def crawl_ningxia_yinchuan(self):
+        for page in tqdm(range(1, 169)):
+            # print(page)
+            curl = self.result_list_curl.copy()
+            curl['data']['start'] = str((page - 1) * 6)
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for cata_id, formate in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['cata_id'] = cata_id
+                metadata = self.detail.get_detail(curl)
+                if bool(metadata):
+                    metadata['详情页网址'] = "http://data.yinchuan.gov.cn/odweb/catalog/catalogDetail.htm?cata_id=" + cata_id
+                    formate_mapping = {'1': 'xls', '2': 'xml', '3': 'json', '4': 'csv'}
+                    if formate is None:
+                        metadata['数据格式'] = "['file']"
+                    else:
+                        type_list = [formate_mapping[s.strip()] for s in formate.split(',')[:-1]]
+                        metadata['数据格式'] = str(type_list)
+                    # print(metadata)
+                    self.metadata_list.append(metadata)
+
     def crawl_xinjiang_wlmq(self):
         for page in tqdm(range(1, 18)):
             # print(page)
@@ -344,6 +368,127 @@ class Crawler:
                 self.metadata_list.clear()
                 print('write to file')
 
+    def crawl_anhui_hefei(self):
+        for page in tqdm(range(1, 34)):
+            # print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['currentPageNo'] = str(page)
+            # curl['queries']['_'] = str(int(round(time.time() * 1000)))
+            # curl['headers']['Referer'] = curl['headers']['Referer'].format(str(page))
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for cata_id, formate in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['cata_id'] = cata_id
+                metadata = self.detail.get_detail(curl)
+                self.metadata_list.append(metadata)
+
+    def crawl_anhui_wuhu(self):
+        for page in range(1, 37):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['data']['pageNo'] = str(page)
+            metadata_list = self.result_list.get_result_list(curl)
+            if len(metadata_list) == 0:
+                break
+            self.metadata_list.extend(metadata_list)
+
+    def crawl_anhui_bengbu(self):
+        # dataset
+        for page in range(0, 8):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['pageIndex'] = str(page)
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for iid in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['resourceId'] = re.search(r"(?<=resourceId=)\d+", iid).group(0)
+                # print(curl['queries']['resourceId'])
+                metadata = self.detail.get_detail(curl)
+                metadata['详情页网址'] = 'https://www.bengbu.gov.cn' + iid
+                if metadata['下载格式'][0] == '':
+                    metadata['下载格式'] = ['file']
+                # print(metadata)
+                self.metadata_list.append(metadata)
+        # api
+        for page in range(0, 2):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['pageIndex'] = str(page)
+            curl['queries']['resourceType'] = 'api'
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for iid in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['resourceId'] = re.search(r"(?<=resourceId=)\d+", iid).group(0)
+                curl['url'] = 'https://www.bengbu.gov.cn/site/tpl/6541'
+                metadata = self.detail.get_detail(curl)
+                metadata['详情页网址'] = 'https://www.bengbu.gov.cn' + iid
+                metadata['下载格式'] = ['api']
+                # print(metadata)
+                self.metadata_list.append(metadata)
+
+    def crawl_anhui_huaibei(self):
+        for page in range(1, 39):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['curPageNumber'] = str(page)
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for iid in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['id'] = iid
+                print(curl['queries']['resourceId'])
+                metadata = self.detail.get_detail(curl)
+                metadata['详情页网址'] = 'http://open.huaibeidata.cn:1123/#/data_public/detail/' + iid
+                # print(metadata)
+                self.metadata_list.append(metadata)
+
+    def crawl_anhui_huangshan(self):
+        # dataset
+        for page in range(1, 26):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['pageIndex'] = str(page)
+            time.sleep(1)
+            ids = self.result_list.get_result_list(curl)
+            if len(ids) == 0:
+                break
+            for iid, depart, cata, format_list in ids:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['resourceId'] = re.search(r"(?<=resourceId=)\d+", iid).group(0)
+                time.sleep(1)
+                metadata = self.detail.get_detail(curl)
+                metadata['详情页网址'] = 'https://www.huangshan.gov.cn' + iid
+                metadata['提供机构'] = depart
+                metadata['数据领域'] = cata
+                metadata['资源格式'] = format_list
+                metadata['开放条件'] = '无条件开放'
+                # print(metadata)
+                self.metadata_list.append(metadata)
+
+    def crawl_anhui_chuzhou(self):
+        for page in range(0, 86):
+            print(page)
+            curl = self.result_list_curl.copy()
+            curl['queries']['page'] = str(page)
+            time.sleep(1)
+            metadata_list = self.result_list.get_result_list(curl)
+            if len(metadata_list) == 0:
+                break
+            for meta in metadata_list:
+                curl = self.detail_list_curl.copy()
+                curl['queries']['name'] = meta['标题']
+                time.sleep(1)
+                remains = self.detail.get_detail(curl)
+                # print(metadata)
+                self.metadata_list.append(meta | remains)
+
     def crawl_other(self):
         print("暂无该省市")
 
@@ -357,7 +502,7 @@ if __name__ == '__main__':
     with open(PROVINCE_CURL_JSON_PATH, 'r', encoding='utf-8') as curlFile:
         curls = json.load(curlFile)
 
-    crawler = Crawler("sichuan", "nanchong")
+    crawler = Crawler("anhui", "chuzhou")
     crawler.crawl()
     crawler.save_matadata_as_json(METADATA_SAVE_PATH)
     # for province in provinces:

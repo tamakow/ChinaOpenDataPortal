@@ -1,0 +1,14 @@
+{
+    "标题": "title",
+    "数据提供方": "department",
+    "数据主题": "category",
+    "发布时间": "publish_time",
+    "更新时间": "update_time",
+    "公开属性": "is_open",
+    "更新频率": "update_frequency",
+    "摘要": "description",
+    "下载格式": "data_formats",
+    "关键字": "tags",
+    "数据条数": "data_volume",
+    "详情页网址": "url"
+}

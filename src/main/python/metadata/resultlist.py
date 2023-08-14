@@ -5,7 +5,7 @@ import urllib
 import requests
 from bs4 import BeautifulSoup
 from constants import REQUEST_TIME_OUT
-
+import execjs
 
 class ResultList:
     def __init__(self, province, city) -> None:
@@ -216,6 +216,17 @@ class ResultList:
             links.append({'link': link['href'], 'data_formats': str(data_formats)})
         return links
 
+    def result_list_ningxia_yinchuan(self, curl):
+        response = requests.post(curl['url'], params=curl['queries'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        # print(response)
+        resultList = json.loads(response.text)['data']
+        ids = [(str(x['cata_id']), x['conf_catalog_format']) for x in resultList]
+        return ids
+
     def result_list_xinjiang_wlmq(self, curl):
         response = requests.post(curl['url'], params=curl['queries'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
 
@@ -226,6 +237,154 @@ class ResultList:
         resultList = json.loads(response.text)['data']
         ids = [(str(x['cata_id']), x['conf_catalog_format']) for x in resultList]
         return ids
+
+    def result_list_anhui_hefei(self, curl):
+        response = requests.get(curl['url'],
+                                params=curl['queries'],
+                                headers=curl['headers'],
+                                timeout=REQUEST_TIME_OUT)
+
+        if response.status_code == 521:
+            script = re.search(r'(?<=<script>).*(?=</script>)', response.text).group(0)
+            script = re.search(r'(?<=document.)cookie=.*(?=location.href)', script).group(0)
+            ctx = execjs.compile("var " + script)
+            cookie_str = ctx.eval('cookie')
+            clearance = cookie_str.split(';')[0]
+            s = clearance.split('=')
+            curl['cookies'][s[0]] = s[1]
+
+            response = requests.get(curl['url'],
+                                    params=curl['queries'],
+                                    headers=curl['headers'],
+                                    timeout=REQUEST_TIME_OUT)
+            print(response.text)
+            exit(0)
+
+        #     if response.status_code == 521:
+        #         html = response.content.decode('utf-8')
+        #         soup = BeautifulSoup(html, "html.parser")
+        #         script = soup.find('script').get_text()
+        #         script = "var window = {}; window.navigator = {userAgent: 'node',};" + script
+        #         ctx = execjs.compile(script)
+        #         param = re.search(r'\{\"bts\".*\}', script).group(0)
+        #         param = json.loads(param)
+        #         cookie_str = ctx.call('go', param)
+        #         print(cookie_str)
+        #         exit(0)
+        #         clearance = cookie_str.split(';')[0]
+        #         headers = curl['headers'].copy()
+        #         headers['Cookie'] += clearance
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            print(response.text)
+            return dict()
+        # print(response)
+        resultList = json.loads(response.text)['data']['result']
+        print(resultList)
+        exit(0)
+        ids = [(str(x['id']), x['zyid']) for x in resultList]
+        return ids
+
+    def result_list_anhui_wuhu(self, curl):
+        response = requests.post(curl['url'], data=curl['data'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        resultList = json.loads(response.text.replace('\\"', '"')[1:-1])['smcDataSetList']
+        # 目前所有数据集中只出现了每日和每年
+        frequency_mapping = {'1': "实时", '2': "每日", '3': "每周", '4': "每月", '5': "每半年", '6': "每年"}
+        dataset_metadata = []
+        for result in resultList:
+            dataset_id = result['id']
+            metadata_mapping = {
+                "标题": result['datasetName'],
+                "机构分类": result['isValid'],
+                "url": "https://data.wuhu.cn/datagov-ops/data/toDetailPage?id=" + dataset_id,
+                "领域名称": result['dataType'],
+                "数据集创建时间": result['createDate'],
+                "数据集更新时间": result['updateDate'].split(' ')[0],
+                "开放类型": "无条件开放" if result['openType'] == '1' else "有条件开放",
+                "更新频率": frequency_mapping[result['dataUpdateFrequency']],
+                "数据简介": result['summary'],
+                "资源格式": ['api'] if result['dataResourceType'] == '2' else [file['fileType'].split('.')[-1] for file in result['fileList']]
+            }
+            dataset_metadata.append(metadata_mapping)
+        return dataset_metadata
+
+    def result_list_anhui_bengbu(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'],
+                                timeout=REQUEST_TIME_OUT)
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        # soup = BeautifulSoup(html, "lxml")
+        links = []
+
+        for dataset in soup.find('div', attrs={'class': 'sj_list'}).find('ul').find_all('li',
+                                                                                               recursive=False):
+            link = dataset.find('div', attrs={
+                'class': 'sjinfo'
+            }).find('a', attrs={'href': re.compile("site/tpl/.*")})
+            links.append(link['href'])
+        return links
+
+    def result_list_anhui_huaibei(self, curl):
+        response = requests.post(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        # print(response)
+        resultList = json.loads(response.text)['result']['data']
+        ids = [x['id'] for x in resultList]
+        return ids
+
+    def result_list_anhui_huangshan(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'],
+                                timeout=REQUEST_TIME_OUT)
+        html = response.content.decode('utf-8')
+        soup = BeautifulSoup(html, "html.parser")
+        # soup = BeautifulSoup(html, "lxml")
+        links = []
+
+        for dataset in soup.find('ul', attrs={'class': 'clearfix'}).find_all('li', recursive=False):
+            div = dataset.find('div', attrs={
+                'class': 'sjcon clearfix'
+            }).find('div', attrs={'class': 'dataresources-con'})
+            link = div.find('a', attrs={'href': re.compile("/site/tpl/.*")})
+            depart = div.find('p', attrs={'class': 'xx clearfix'}).find('span', attrs={'class': 'n2'}).get_text().split("：")[-1].strip()
+            cata = div.find('p', attrs={'class': 'xx clearfix'}).find('span', attrs={'class': 'n3'}).get_text().split("：")[-1].strip()
+            format_list = []
+            for data_format in div.find('p', attrs={'class': 'zyzy clearfix'}).find('span', attrs={'class': 'link'}).find_all('a', attrs={'class': 'j-login'}):
+                format_list.append(data_format.find('em').get_text().lower().strip())
+            if len(format_list) == 0:
+                format_list = ['file']
+            links.append((link['href'], depart, cata, format_list))
+        return links
+
+    def result_list_anhui_chuzhou(self, curl):
+        response = requests.get(curl['url'], params=curl['queries'], headers=curl['headers'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+        resultList = json.loads(response.text)['content']
+        dataset_metadata = []
+        for result in resultList:
+            metadata_mapping = {
+                "标题": result['name'],
+                "提供单位": result['companys']['title'],
+                "开放主题": result['fields']['title'],
+                "发布时间": result['createtime'].split(' ')[0],
+                "更新时间": result['updatetime'].split(' ')[0],
+                "开放类型": "无条件开放" if result['sharetype'] == '2' else "有条件开放",
+                "描述": result['description'],
+                "开放领域": result['themes']['title'],
+                "关键词": result['keyword']
+            }
+            dataset_metadata.append(metadata_mapping)
+        return dataset_metadata
 
     def result_list_other(self):
         print("暂无该省")

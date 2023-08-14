@@ -1,0 +1,14 @@
+{
+    "标题": "title",
+    "提供单位": "department",
+    "开放主题": "category",
+    "发布时间": "publish_time",
+    "更新时间": "update_time",
+    "开放类型": "is_open",
+    "描述": "description",
+    "开放领域": "industry",
+    "资源格式": "data_formats",
+    "联系电话": "telephone",
+    "关键词": "tags",
+    "详情页网址": "url"
+}
