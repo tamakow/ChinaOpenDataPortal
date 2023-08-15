@@ -1014,8 +1014,6 @@
         "url": "https://www.hefei.gov.cn/open-data-web/kfzy/queryKfZyPage.do",
         "raw_url": "https://www.hefei.gov.cn/open-data-web/kfzy/queryKfZyPage.do?zylxdm=1&currentPageNo=1&pageSize=10&rtcode=03&rcid=&flag=0&sortSign=&_=1692007481541",
         "method": "get",
-        "cookies": {
-        },
         "headers": {
           "Accept": "application/json, text/javascript, */*; q=0.01",
           "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -1036,12 +1034,44 @@
           "rtcode": "03",
           "rcid": "",
           "flag": "0",
-          "sortSign": "",
-          "_": "1692007481541"
+          "sortSign": ""
         },
         "compressed": true
       },
       "detail": {
+        "url": "https://www.hefei.gov.cn/open-data-web/kfzy/getKfzyDetail.do",
+        "raw_url": "https://www.hefei.gov.cn/open-data-web/kfzy/getKfzyDetail.do",
+        "method": "post",
+        "cookies": {
+          "JSESSIONID": "37AF8EF5608E55EB18DEB490303A8F5E",
+          "__jsluid_s": "e896564aa974d8a828575ae7ac9a39a8",
+          "__jsluid_h": "be9571b81ff9751fecb0837660d85a93",
+          "__jsl_clearance_s": "1692097825.082|0|Rw6XHIgxELg0xTwHh3WjmthUt3w%3D",
+          "hefei_gova_SHIROJSESSIONID": "089ccef0-98e5-48ee-958b-5b3b6ea72d89"
+        },
+        "headers": {
+          "Accept": "application/json, text/javascript, */*; q=0.01",
+          "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+          "Connection": "keep-alive",
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "Origin": "https://www.hefei.gov.cn",
+          "Referer": "https://www.hefei.gov.cn/open-data-web/data/detail-hfs.do?&id=ff80808187735f120188da12f7fe7bf6&zyId=ff80808187735f120188da12f7fe7bf6",
+          "Sec-Fetch-Dest": "empty",
+          "Sec-Fetch-Mode": "cors",
+          "Sec-Fetch-Site": "same-origin",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest",
+          "sec-ch-ua": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\""
+        },
+        "data": {
+          "id": "",
+          "zyId": "",
+          "zylx": "1",
+          "czlx": "1"
+        },
+        "compressed": true
       }
     },
     "wuhu": {

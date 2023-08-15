@@ -1,0 +1,12 @@
+{
+    "标题": "title",
+    "提供单位": "department",
+    "所属领域": "category",
+    "发布时间": "publish_time",
+    "更新时间": "update_time",
+    "开放条件": "is_open",
+    "更新频率": "update_frequency",
+    "摘要信息": "description",
+    "资源格式": "data_formats",
+    "详情页网址": "url"
+}

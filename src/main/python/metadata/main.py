@@ -378,10 +378,12 @@ class Crawler:
             ids = self.result_list.get_result_list(curl)
             if len(ids) == 0:
                 break
-            for cata_id, formate in ids:
+            for iid, zyId in ids:
                 curl = self.detail_list_curl.copy()
-                curl['queries']['cata_id'] = cata_id
+                curl['data']['id'] = iid
+                curl['data']['zyId'] = zyId
                 metadata = self.detail.get_detail(curl)
+                metadata["详情页网址"] = 'https://www.hefei.gov.cn/open-data-web/data/detail-hfs.do?&id=' + iid + '&zyId=' + zyId
                 self.metadata_list.append(metadata)
 
     def crawl_anhui_wuhu(self):
@@ -502,7 +504,7 @@ if __name__ == '__main__':
     with open(PROVINCE_CURL_JSON_PATH, 'r', encoding='utf-8') as curlFile:
         curls = json.load(curlFile)
 
-    crawler = Crawler("anhui", "chuzhou")
+    crawler = Crawler("anhui", "hefei")
     crawler.crawl()
     crawler.save_matadata_as_json(METADATA_SAVE_PATH)
     # for province in provinces:

@@ -1,11 +1,37 @@
+import hashlib
 import json
 import re
 import urllib
 
 import requests
 from bs4 import BeautifulSoup
+from requests.utils import add_dict_to_cookiejar
+
 from constants import REQUEST_TIME_OUT
 import execjs
+
+
+def getCookie(data):
+    """
+    通过加密对比得到正确cookie参数
+    :param data: 参数
+    :return: 返回正确cookie参数
+    """
+    chars = len(data['chars'])
+    for i in range(chars):
+        for j in range(chars):
+            clearance = data['bts'][0] + data['chars'][i] + data['chars'][j] + data['bts'][1]
+            encrypt = None
+            if data['ha'] == 'md5':
+                encrypt = hashlib.md5()
+            elif data['ha'] == 'sha1':
+                encrypt = hashlib.sha1()
+            elif data['ha'] == 'sha256':
+                encrypt = hashlib.sha256()
+            encrypt.update(clearance.encode())
+            result = encrypt.hexdigest()
+            if result == data['ct']:
+                return clearance
 
 class ResultList:
     def __init__(self, province, city) -> None:
@@ -239,41 +265,21 @@ class ResultList:
         return ids
 
     def result_list_anhui_hefei(self, curl):
-        response = requests.get(curl['url'],
-                                params=curl['queries'],
-                                headers=curl['headers'],
-                                timeout=REQUEST_TIME_OUT)
-
-        if response.status_code == 521:
-            script = re.search(r'(?<=<script>).*(?=</script>)', response.text).group(0)
-            script = re.search(r'(?<=document.)cookie=.*(?=location.href)', script).group(0)
-            ctx = execjs.compile("var " + script)
-            cookie_str = ctx.eval('cookie')
-            clearance = cookie_str.split(';')[0]
-            s = clearance.split('=')
-            curl['cookies'][s[0]] = s[1]
-
-            response = requests.get(curl['url'],
-                                    params=curl['queries'],
-                                    headers=curl['headers'],
-                                    timeout=REQUEST_TIME_OUT)
-            print(response.text)
-            exit(0)
-
-        #     if response.status_code == 521:
-        #         html = response.content.decode('utf-8')
-        #         soup = BeautifulSoup(html, "html.parser")
-        #         script = soup.find('script').get_text()
-        #         script = "var window = {}; window.navigator = {userAgent: 'node',};" + script
-        #         ctx = execjs.compile(script)
-        #         param = re.search(r'\{\"bts\".*\}', script).group(0)
-        #         param = json.loads(param)
-        #         cookie_str = ctx.call('go', param)
-        #         print(cookie_str)
-        #         exit(0)
-        #         clearance = cookie_str.split(';')[0]
-        #         headers = curl['headers'].copy()
-        #         headers['Cookie'] += clearance
+        # 使用session保持会话
+        session = requests.session()
+        res1 = session.get(curl['url'], headers=curl['headers'], params=curl['queries'])
+        jsl_clearance_s = re.findall(r'cookie=(.*?);location', res1.text)[0]
+        # 执行js代码
+        jsl_clearance_s = str(execjs.eval(jsl_clearance_s)).split('=')[1].split(';')[0]
+        # add_dict_to_cookiejar方法添加cookie
+        add_dict_to_cookiejar(session.cookies, {'__jsl_clearance_s': jsl_clearance_s})
+        res2 = session.get(curl['url'], headers=curl['headers'], params=curl['queries'])
+        # 提取go方法中的参数
+        data = json.loads(re.findall(r';go\((.*?)\)', res2.text)[0])
+        jsl_clearance_s = getCookie(data)
+        # 修改cookie
+        add_dict_to_cookiejar(session.cookies, {'__jsl_clearance_s': jsl_clearance_s})
+        response = session.get(curl['url'], headers=curl['headers'], params=curl['queries'])
 
         if response.status_code != requests.codes.ok:
             print("error " + str(response.status_code) + ": " + curl['url'])
@@ -281,9 +287,8 @@ class ResultList:
             return dict()
         # print(response)
         resultList = json.loads(response.text)['data']['result']
-        print(resultList)
-        exit(0)
-        ids = [(str(x['id']), x['zyid']) for x in resultList]
+
+        ids = [(str(x['id']), x['zyId']) for x in resultList]
         return ids
 
     def result_list_anhui_wuhu(self, curl):

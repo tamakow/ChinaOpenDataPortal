@@ -1,12 +1,39 @@
+import hashlib
 import json
 import re
 import time
+
+import execjs
 import unicodedata as ucd
 
 import requests
 from bs4 import BeautifulSoup
+from requests.utils import add_dict_to_cookiejar
+
 from constants import REQUEST_TIME_OUT
 
+
+def getCookie(data):
+    """
+    通过加密对比得到正确cookie参数
+    :param data: 参数
+    :return: 返回正确cookie参数
+    """
+    chars = len(data['chars'])
+    for i in range(chars):
+        for j in range(chars):
+            clearance = data['bts'][0] + data['chars'][i] + data['chars'][j] + data['bts'][1]
+            encrypt = None
+            if data['ha'] == 'md5':
+                encrypt = hashlib.md5()
+            elif data['ha'] == 'sha1':
+                encrypt = hashlib.sha1()
+            elif data['ha'] == 'sha256':
+                encrypt = hashlib.sha256()
+            encrypt.update(clearance.encode())
+            result = encrypt.hexdigest()
+            if result == data['ct']:
+                return clearance
 
 class Detail:
     def __init__(self, province, city) -> None:
@@ -511,6 +538,67 @@ class Detail:
                     dataset_metadata[li_name] = li_text
         dataset_metadata['详情页网址'] = curl['url']
         return dataset_metadata
+
+    def detail_anhui_hefei(self, curl):
+
+        key_map = {
+            'zy': "标题",
+            'tgdwmc': "提供单位",
+            'filedName': "所属领域",
+            'cjsj': "发布时间",
+            'gxsj': "更新时间",
+            'gxpl': "更新频率",
+            'zymc': "摘要信息",
+            'fjhzm': "资源格式"
+        }
+
+        # 使用session保持会话
+        session = requests.session()
+        res1 = session.post(curl['url'], headers=curl['headers'], data=curl['data'], timeout=REQUEST_TIME_OUT)
+        jsl_clearance_s = re.findall(r'cookie=(.*?);location', res1.text)[0]
+        # 执行js代码
+        jsl_clearance_s = str(execjs.eval(jsl_clearance_s)).split('=')[1].split(';')[0]
+        # add_dict_to_cookiejar方法添加cookie
+        add_dict_to_cookiejar(session.cookies, {'__jsl_clearance_s': jsl_clearance_s})
+        res2 = session.post(curl['url'], headers=curl['headers'], data=curl['data'], timeout=REQUEST_TIME_OUT)
+        # 提取go方法中的参数
+        data = json.loads(re.findall(r';go\((.*?)\)', res2.text)[0])
+        jsl_clearance_s = getCookie(data)
+        # 修改cookie
+        add_dict_to_cookiejar(session.cookies, {'__jsl_clearance_s': jsl_clearance_s})
+        response = session.post(curl['url'], headers=curl['headers'], data=curl['data'], timeout=REQUEST_TIME_OUT)
+
+        if response.status_code != requests.codes.ok:
+            print("error " + str(response.status_code) + ": " + curl['url'])
+            return dict()
+
+        dataset_matadata = {}
+        detail_json = json.loads(response.text)['data']
+
+        freq_map = {
+            '': '',
+            '6': '每年',
+            '8': '每两年'
+        }
+
+        dataset_matadata['开放条件'] = "无条件开放"
+
+        for key, value in key_map.items():
+            if detail_json[key] is None:
+                dataset_matadata[value] = ""
+                continue
+            if key in ['cjsj', 'gxsj']:
+                detail_json[key] = detail_json[key][0:4] + '-' + detail_json[key][4:6] + '-' + detail_json[key][6:8]
+            if key == 'gxpl':
+                detail_json[key] = freq_map[detail_json[key]]
+            if key == 'fjhzm':
+                detail_json[key] = detail_json[key].lower().strip().split(' ')
+            dataset_matadata[value] = detail_json[key]
+
+        if dataset_matadata["资源格式"][0] == '':
+            dataset_matadata["资源格式"] = ['file']
+
+        return dataset_matadata
 
     def detail_anhui_bengbu(self, curl):
         list_fields = ["数据提供方", "数据主题", "发布时间", "更新时间", "公开属性", "更新频率", "摘要", "下载格式",
